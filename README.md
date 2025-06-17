@@ -26,13 +26,8 @@ This project analyzes the sentiment of real-time news articles related to a give
    git clone https://github.com/your-username/your-repo-name.git
    cd your-repo-name
    
-Install dependencies:
 pip install -r requirements.txt
-
-Or manually 
 pip install yfinance requests textblob pandas streamlit
-
-Replace the API key in the script:
 apiKey = 'your_newsapi_key'
 
 
