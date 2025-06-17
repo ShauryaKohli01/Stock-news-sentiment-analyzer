@@ -5,7 +5,7 @@ import pandas as pd
 
 # 1. Get stock news from NewsAPI
 def get_news(query):
-    url = f'https://newsapi.org/v2/everything?q={query}&apiKey=cdcf4b42eef0406ebb11186984245f44&pageSize=5'
+    url = f'https://newsapi.org/v2/everything?q={query}&apiKey=Your API Key&pageSize=5'
     response = requests.get(url)
     data = response.json()
     print(data)  # Optional: Remove this in production
