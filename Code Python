@@ -3,7 +3,6 @@ import requests
 from textblob import TextBlob
 import pandas as pd
 
-
 # 1. Get stock news from NewsAPI
 def get_news(query):
     url = f'https://newsapi.org/v2/everything?q={query}&apiKey=cdcf4b42eef0406ebb11186984245f44&pageSize=5'
@@ -12,7 +11,6 @@ def get_news(query):
     print(data)  # Optional: Remove this in production
     return [article['title'] for article in data.get('articles', [])]
 
-
 # 2. Analyze sentiment
 def analyze_sentiment(news_list):
     results = []
@@ -20,7 +18,6 @@ def analyze_sentiment(news_list):
         sentiment = TextBlob(headline).sentiment.polarity
         results.append((headline, sentiment))
     return results
-
 
 # 3. CLI version
 def cli_main():
@@ -35,13 +32,12 @@ def cli_main():
     print(df)
     print(f"\nAverage Sentiment Score: {df['Sentiment'].mean():.2f}")
 
-
 # 4. Streamlit version
 def streamlit_main():
     import streamlit as st
     st.title("Stock News Sentiment Analyzer")
     stock = st.text_input("Enter a stock/company name", "Tesla")
-
+    
     if st.button("Analyze"):
         news = get_news(stock)
         if not news:
@@ -52,11 +48,8 @@ def streamlit_main():
         st.write(df)
         st.write(f"**Average Sentiment Score:** {df['Sentiment'].mean():.2f}")
 
-
 # 5. Run condition
 if __name__ == "__main__":
     # Comment/uncomment based on how you want to run
-    cli_main()  # <-- Console Version
+    cli_main()         # <-- Console Version
     # streamlit_main() # <-- Streamlit Version (Run using: `streamlit run script.py`)
-
-
